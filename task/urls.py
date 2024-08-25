@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/bfhl', process_data, name='process_data'),
-    path('api/bfhl', get_operation_code, name='get_operation_code'), 
+    path('api/bfhl', views.process_data, name='process_data'),
     path('', views.home, name='home'),
+    path('api/get_operation_code/', views.get_operation_code, name='get_operation_code'),
 ]
 
 if settings.DEBUG:
